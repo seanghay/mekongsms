@@ -25,6 +25,6 @@ export declare type MekongSMSCreditResult = {
 
 export declare class MekongSMS {
   constructor(options: MekongSMSOptions);
-  async send(options: MekongSMSSendOptions): Promise<MekongSMSSendResult[]>;
-  async credits(): Promise<MekongSMSCreditResult>;
+  send(options: MekongSMSSendOptions): Promise<MekongSMSSendResult[]>;
+  credits(): Promise<MekongSMSCreditResult>;
 }
