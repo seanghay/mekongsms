@@ -10,6 +10,8 @@ npm install mekongsms
 
 ## Usage
 
+Initialize MekongSMS client.
+
 ```javascript
 const client = new MekongSMS({
 	endpoint: "https://sandbox.mekongsms.com",
@@ -20,8 +22,10 @@ const client = new MekongSMS({
 
 ### Send SMS
 
+Send an SMS to one or multitple phone numbers.
+
 ```javascript
-const result = await client.send({
+await client.send({
 	international: false,
 	phoneNumbers: ["85512345678", "85512345679", "85512345688"],
 	text: "Hello, world",
@@ -31,15 +35,14 @@ const result = await client.send({
 
 ### Check Credits
 
-```javascript
-const credit = await client.credits()
-```
-
-### Download Delivery Reports
+Check available credit associated with the account. 
 
 ```javascript
-const report = await client.delivery({
-  start: new Date("2021-01-01"),
-  end: new Date("2022-01-01")
-})
+const value = await client.credits();
+// => { "credit": 1234 }
 ```
+
+
+### License
+
+MIT

@@ -1,10 +1,15 @@
 {
   "name": "mekongsms",
   "description": "MekongSMS client",
+  "license": "MIT",
+  "author": {
+    "name": "Seanghay Yath",
+    "email": "Seanghay.dev@gmail.com",
+    "url": "https://github.com/seanghay"
+  },
   "main": "src/index.js",
   "dependencies": {
     "axios": "^1.5.1",
-    "date-fns": "^2.30.0",
     "md5": "^2.3.0"
   }
 }
