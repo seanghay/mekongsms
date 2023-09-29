@@ -2,6 +2,7 @@
   "name": "mekongsms",
   "description": "MekongSMS client",
   "license": "MIT",
+  "repository": "seanghay/mekongsms",
   "author": {
     "name": "Seanghay Yath",
     "email": "Seanghay.dev@gmail.com",
