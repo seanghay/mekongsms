@@ -30,6 +30,7 @@ await client.send({
 	phoneNumbers: ["85512345678", "85512345679", "85512345688"],
 	text: "Hello, world",
 	customData: "user_01",
+	sender: "Example"
 });
 ```
 
