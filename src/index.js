@@ -26,11 +26,11 @@ exports.MekongSMS = class MekongSMS {
     this._sender = sender;
   }
 
-  async send({ text, customData, sender, phoneNumbers, international } = {}) {
+  async send({ text, customData, sender, phoneNumbers, international, statusCallback } = {}) {
     if (typeof phoneNumbers === 'string') phoneNumbers = phoneNumbers.split(";")
-    const url = new URL("/api/sendsms.aspx", this._endpoint)
+    const url = new URL("/api_v01/postsms.aspx", this._endpoint)
 
-    url.search = new URLSearchParams(Object.entries({
+    const searchParams = new URLSearchParams(Object.entries({
       smstext: text,
       cd: customData,
       int: international ? 1 : undefined,
@@ -38,14 +38,24 @@ exports.MekongSMS = class MekongSMS {
       sender,
     }).filter(([, b]) => b !== null && b !== undefined))
 
-    url.searchParams.set("username", this._username)
-    url.searchParams.set("pass", this._password)
+    searchParams.set("username", this._username)
+    searchParams.set("pass", this._password)
 
-    if (!url.searchParams.has("sender") && typeof this._sender === 'string') {
-      url.searchParams.set("sender", this._sender)
+    if (!searchParams.has("sender") && typeof this._sender === 'string') {
+      searchParams.set("sender", this._sender)
     }
 
-    const response = await axios.get(url.href)
+    if (typeof statusCallback === 'string') {
+      searchParams.set('dlrpush', '1')
+      searchParams.set('pushurl', statusCallback)
+    }
+
+    const response = await axios.post(url.href, searchParams, {
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    })
+
     return handleResponse(response.data)
   }
 

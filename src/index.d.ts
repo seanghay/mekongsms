@@ -11,6 +11,7 @@ export declare type MekongSMSSendOptions = {
   phoneNumbers: string | string[];
   international?: boolean;
   customData?: string;
+  statusCallback?: string
 }
 
 export declare type MekongSMSSendResult = {
