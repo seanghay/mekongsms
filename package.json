@@ -1,6 +1,6 @@
 {
   "name": "mekongsms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "MekongSMS client",
   "license": "MIT",
   "repository": "seanghay/mekongsms",
