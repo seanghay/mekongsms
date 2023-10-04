@@ -44,6 +44,23 @@ const value = await client.credits();
 // => { "credit": 1234 }
 ```
 
+### Status Callback
+
+Request Body
+
+```json
+[
+  {
+    "campaignid": 9999999999,
+    "to": "85512341234",
+    "from": "Sender Name",
+    "senttime": "2023-01-01 11:11:11",
+    "receivedtime": "2023-01-01 11:11:11",
+    "status": "Delivered"
+  }
+]
+```
+
 
 ### License
 
